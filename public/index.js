@@ -1,6 +1,6 @@
 const searchTextArea = document.querySelector('#city-search-input-text');
 const searchButton = document.querySelector('#city-search-button');
-const output = document.querySelector('.container');
+const output = document.querySelector('.content');
 
 const userLocation = () => {
   if('geolocation' in navigator) {
@@ -8,26 +8,15 @@ const userLocation = () => {
 
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
-      const info = {latitude, longitude};
-
-      const options = {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          //'Accept': 'application/json'
-        },
-        body: JSON.stringify(info),
-      };
     
-      fetch('http://localhost:3000/api', options)
-      .then(res => res.json())
-      .then(res => appendWeatherData(res));
-      /* .then(res => appendWeatherData(res)); */
+      fetch(`http://localhost:3000/api/${latitude}/${longitude}`)
+        .then(res => res.json())
+        .then(res => appendWeatherData(res));
     });
+
   } else {
     /* Geolocation is not available */
     console.log('Geolocation is not available');
-    
   }
 }
 
