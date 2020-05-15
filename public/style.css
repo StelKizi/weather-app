@@ -1,0 +1,88 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Roboto', sans-serif;
+	color: #48484b;
+	background: #076585;  /* fallback for old browsers */
+	background: -webkit-linear-gradient(to right, #e5f3fa, #076585);  /* Chrome 10-25, Safari 5.1-6 */
+	background: linear-gradient(to right, #e5f3fa, #076585); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.container {
+	width: 40%;
+	margin-left: 30%;
+	margin-top: 7%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.content {
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.city-country {
+	font-size: 1.8em;
+}
+
+.city-icon-degrees {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+}
+
+.icon-degrees {
+	display: flex;
+	justify-content: center;
+}
+
+.degrees-value {
+	font-size: 2.8em;
+}
+
+.description {
+	font-size: 1.1em;
+}
+
+.more-data {
+	margin: 12% 0 5%;
+	font-size: 0.9em;
+	width: 100%;
+}
+
+.more-data-cluster-one {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+.more-data-cluster-two {
+	width: 100%;
+	display: flex;
+	justify-content: space-evenly;
+}
+
+#city-search-input-text {
+	border: 3px solid rgb(233, 237, 247);
+	border-radius: 3px;
+	box-shadow: inset 0 0 8px  rgba(0,0,0,0.1), 0 0 16px rgba(0,0,0,0.1);
+	padding: 10px;
+	background: #ffffff80;
+}
+
+#city-search-button {
+	border: 3px solid rgb(233, 237, 247);
+	border-radius: 3px;
+	box-shadow: 0 0 8px  rgba(0,0,0,0.1), 0 0 16px rgba(0,0,0,0.1);
+	padding: 10px;
+	background: #ffffff80;
+	color: #48484b;
+}

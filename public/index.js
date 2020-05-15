@@ -20,6 +20,7 @@ const userLocation = () => {
   }
 }
 
+
 const appendWeatherData = (data) => { 
 
   /* Extract hours and minutes from unix timestamp for sunrise and sunset */
@@ -36,33 +37,34 @@ const appendWeatherData = (data) => {
   const formattedTime_sunset = `${hours_sunset}:${minutes_sunset}`;
   
   output.innerHTML = `
-    <div class="city-country">${data.name},${data.sys.country}</div>
-
-    <div class="icon-degrees-symbol">
-      <div class="icon"> 
-        <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png">
+  
+    <div class="city-icon-degrees">
+      <div class="city-country">${data.name},&nbsp${data.sys.country}</div>
+      <div class="icon-degrees">
+        <img src="http://openweathermap.org/img/wn/${data.weather[0].icon}.png">
+        <div class="degrees-value">${data.main.temp}&deg</div>
       </div>
-
-      <div class="degrees-value">${data.main.temp}&deg</div>
     </div>
 
-    <div class="descroption">${data.weather[0].description}</div>
+    <div class="description">${data.weather[0].description}</div>
+
 
     <div class="more-data">
       <div class="more-data-cluster-one">
         <div class="feels-like">feels like ${data.main.feels_like}&deg</div>
-        <div class="min-max">${data.main.temp_min}/${data.main.temp_max}</div>
-        <div class="humidiy">humidity ${data.main.humidity}%</div>
+        <div class="min-max">${data.main.temp_max}&deg/&nbsp${data.main.temp_min}&deg</div>
+        <div class="humidity">humidity ${data.main.humidity}%</div>
       </div>
 
       <div class="more-data-cluster-two">
         <div class="wind">wind ${data.wind.speed} m/s</div>
         <div class="sunrise">sunrise ${formattedTime_sunrise}</div>
-        <div class="sunrise">sunset ${formattedTime_sunset}</div>
+        <div class="sunset">sunset ${formattedTime_sunset}</div>
       </div>
     </div>
   `;
 }
+
 
 const retrieveWeatherData = () => {
   const cityName = searchTextArea.value;
@@ -72,6 +74,7 @@ const retrieveWeatherData = () => {
     .then(res => appendWeatherData(res))
     .catch(err => console.log('Error:', err));
 }
+
 
 searchTextArea.addEventListener('keyup', e => e.keyCode === 13 ? retrieveWeatherData() : 0);
 searchButton.addEventListener('click', retrieveWeatherData);
