@@ -1,4 +1,4 @@
-# WeatherAPI App
+# Weather App
 
 An app that uses the API from the [OpenWeatherAPI](https://openweathermap.org/current) to display the current weather conditions in the specified city.
 
