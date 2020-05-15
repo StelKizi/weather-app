@@ -17,8 +17,7 @@ app.get('/api/:lat/:lon', async (req, res) => {
     const longitude = req.params.lon;
     const url = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
     const location = await axios.get(url);
-    res.json(location.data);    
-    console.log('Request:', location.data);
+    res.json(location.data);
   } catch (error) {
     console.log('Error:', error.message);
   }
@@ -27,7 +26,8 @@ app.get('/api/:lat/:lon', async (req, res) => {
 app.get('/api/:city', async(req, res) =>{
   try {
     const city = req.params.city;
-    const url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
+    const url = `http://api.openweathermap.org/data/2.5/weather
+    ?q=${city}&units=metric&appid=${OPEN_WEATHER_API_KEY}`;
     const location = await axios.get(url);
     res.json(location.data);    
     console.log('Request:', location.data);
