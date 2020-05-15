@@ -1,7 +1,8 @@
 # hometask-weatherAPI
 
-- For this exercise you are going to create an weather app using the [OpenWeatherAPI](https://openweathermap.org/current)
-- Create and setup an express server with 2 endpoints, one for /nearby and one for /search/:city
+An app that uses the API from the [OpenWeatherAPI](https://openweathermap.org/current) to display the current weather conditions in the specified city.
+
+
 
 - Make the fetch requests to OpenWeatherApi from your express server, using node-fetch.
 
