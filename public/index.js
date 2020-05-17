@@ -2,6 +2,7 @@ const searchTextArea = document.querySelector('#city-search-input-text');
 const searchButton = document.querySelector('#city-search-button');
 const output = document.querySelector('.content');
 
+
 const userLocation = () => {
   if('geolocation' in navigator) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -16,7 +17,7 @@ const userLocation = () => {
 
   } else {
     /* Geolocation is not available */
-    console.log('Geolocation is not available');
+    noUserGeolocation();
   }
 }
 
@@ -62,6 +63,16 @@ const appendWeatherData = (data) => {
         <div class="sunset">sunset ${formattedTime_sunset}</div>
       </div>
     </div>
+  `;
+}
+
+
+const noUserGeolocation = () => {
+  console.log('Geolocation is not available');
+  output.innerHTML = `
+  <h2 class="status">Enter a location</h2>
+  <h4 class="location">To find the weather</h4>
+  <img src="http://openweathermap.org/img/wn/04d@2x.png">
   `;
 }
 
